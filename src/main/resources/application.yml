@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/planus_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Sao_Paulo
+    username: planus
+    password: admin
+
+  flyway:
+    enabled: false         # <— desliga o Flyway
+
+  jpa:
+    hibernate:
+      ddl-auto: update     # ou create / validate / none
+    open-in-view: false
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+
+  sql:
+    init:
+      mode: always
+    # (mantenha se você usa schema.sql/data.sql; senão, pode remover)
+
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
+
+server:
+  port: 8080

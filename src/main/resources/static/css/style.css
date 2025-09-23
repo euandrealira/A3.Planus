@@ -1,0 +1,110 @@
+body {
+  width: 100%;
+  max-width: 1200px;
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  margin: 20px auto;
+  outline: none;
+}
+
+input:focus,
+input:focus-visible,
+textarea:focus,
+select:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+h1 {
+  color: #2c3e50;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background: #fff;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: #3498db;
+  margin-bottom: 10px;
+}
+
+form {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+form label {
+  width: 100%;
+  max-width: calc(50% - 10px);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+form label input,
+form label select {
+  width: auto;
+  height: 40px;
+  display: block;
+  border: none;
+  margin-top: 5px;
+  padding: 0 20px;
+}
+
+form div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+form div a {
+  margin-bottom: 0;
+}
+
+button {
+  width: 140px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-weight: bold;
+  background: #3498db;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2980b9;
+}
+
+.list-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.list-actions a {
+  margin-bottom: 0;
+}
