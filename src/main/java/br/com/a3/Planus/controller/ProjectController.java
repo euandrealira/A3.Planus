@@ -58,6 +58,7 @@ public class ProjectController {
                 .orElseThrow(() -> new IllegalArgumentException("Projeto não encontrado: " + id)));
         model.addAttribute("users", userRepo.findByProfile(ProfileEnum.Gerente));
         model.addAttribute("statusList", StatusEnum.values());
+        model.addAttribute("teams", teamRepo.findAll());
         return "project/form";
     }
 

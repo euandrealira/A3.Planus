@@ -6,5 +6,5 @@ import lombok.Getter;
 public enum ProfileEnum {
     Administrador,
     Gerente,
-    Collaborator;
+    Colaborador;
 }

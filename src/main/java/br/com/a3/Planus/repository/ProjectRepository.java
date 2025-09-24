@@ -18,5 +18,5 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
 
     @EntityGraph(attributePaths = {"manager","teams"})
     @Query("select p from Project p where p.id = :id")
-    Optional<Team> findByIdWithTeams(@Param("id") Long id);
+    Optional<Project> findByIdWithTeams(@Param("id") Long id);
 }

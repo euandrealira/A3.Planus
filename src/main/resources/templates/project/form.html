@@ -16,11 +16,11 @@
             <input type="text" id="description" name="description" th:field="*{description}" required />
             <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
         </label>
-        <label for="startDate">E-mail:
+        <label for="startDate">Data de início:
             <input type="date" id="startDate" name="startDate" th:field="*{startDate}" required />
             <span th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"></span>
         </label>
-        <label for="endDate">Cargo:
+        <label for="endDate">Data de término prevista:
             <input type="date" id="endDate" name="endDate" th:field="*{endDate}" required />
             <span th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}"></span>
         </label>

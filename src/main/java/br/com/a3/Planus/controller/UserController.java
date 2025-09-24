@@ -44,7 +44,7 @@ public class UserController {
     @GetMapping("/{id}/edit")
     public String edit(@PathVariable Long id, Model model) {
         model.addAttribute("user", repo.findById(id).orElse(null));
-        model.addAttribute("placeholder", "********");
+        model.addAttribute("profiles", ProfileEnum.values());
         return "user/form";
     }
 
