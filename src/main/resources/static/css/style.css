@@ -108,3 +108,27 @@ button:hover {
 .list-actions a {
   margin-bottom: 0;
 }
+
+nav {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav ul {
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 50px;
+  margin-bottom: 10px;
+  list-style: none;
+}
+
+nav ul li {
+
+}

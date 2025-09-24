@@ -6,7 +6,14 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-<h1>Usuários</h1>
+<h1>Planus — Usuários</h1>
+<nav>
+    <ul>
+        <li><a th:href="@{/}">Home</a></li>
+        <li><a th:href="@{/team}">Equipes</a></li>
+        <li><a th:href="@{/project}">Projetos</a></li>
+    </ul>
+</nav>
 <a th:href="@{/user/new}">Novo usuário</a>
 <table border="1" cellpadding="6">
     <thead>

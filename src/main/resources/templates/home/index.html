@@ -1,0 +1,19 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1>Planus — Home</h1>
+<nav>
+    <ul>
+        <li><a th:href="@{/user}">Usuários</a></li>
+        <li><a th:href="@{/team}">Equipes</a></li>
+        <li><a th:href="@{/project}">Projetos</a></li>
+    </ul>
+</nav>
+</body>
+</html>

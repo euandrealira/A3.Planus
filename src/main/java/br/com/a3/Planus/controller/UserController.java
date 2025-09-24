@@ -1,6 +1,7 @@
 package br.com.a3.Planus.controller;
 
 import br.com.a3.Planus.model.User;
+import br.com.a3.Planus.model.enumerable.ProfileEnum;
 import br.com.a3.Planus.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -19,8 +20,6 @@ public class UserController {
 
     private final UserRepository repo;
 
-    @GetMapping("/") public String home() { return "redirect:/user"; }
-
     @GetMapping
     public String getUsers(Model model) {
         model.addAttribute("users", repo.findAll());
@@ -30,6 +29,7 @@ public class UserController {
     @GetMapping("/new")
     public String newUser(Model model) {
         model.addAttribute("user", new User());
+        model.addAttribute("profiles", ProfileEnum.values());
         return "user/form";
     }
 

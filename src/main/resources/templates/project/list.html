@@ -1,0 +1,54 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Projetos</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1>Planus — Projetos</h1>
+<nav>
+    <ul>
+        <li><a th:href="@{/}">Home</a></li>
+        <li><a th:href="@{/team}">Equipes</a></li>
+        <li><a th:href="@{/user}">Usuários</a></li>
+    </ul>
+</nav>
+<a th:href="@{/project/new}">Novo projeto</a>
+<table border="1" cellpadding="6">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Data de início</th>
+            <th>Data de termino prevista</th>
+            <th>Status</th>
+            <th>Gerente</th>
+            <th>Equipes</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="p: ${projects}">
+            <td th:text="${p.id}"></td>
+            <td th:text="${p.name}"></td>
+            <td th:text="${p.description}"></td>
+            <td th:text="${#temporals.format(p.startDate, 'dd/MM/yyyy')}"></td>
+            <td th:text="${#temporals.format(p.endDate, 'dd/MM/yyyy')}"></td>
+            <td th:text="${p.status}"></td>
+            <td th:text="${p.manager.name}"></td>
+            <td th:text="${#lists.isEmpty(p.teams) ? '—' : #strings.listJoin(p.teams.![name], ', ')}"></td>
+            <td>
+                <div class="list-actions">
+                    <a th:href="@{'/project/' + ${p.id} + '/edit'}">Editar</a>
+                    <form th:action="@{'/project/' + ${p.id} + '/delete'}" method="post" style="display:inline">
+                        <button type="submit">Excluir</button>
+                    </form>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

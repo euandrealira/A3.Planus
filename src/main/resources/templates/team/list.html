@@ -1,0 +1,46 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Equipes</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1>Planus — Equipes</h1>
+<nav>
+    <ul>
+        <li><a th:href="@{/}">Home</a></li>
+        <li><a th:href="@{/project}">Projetos</a></li>
+        <li><a th:href="@{/user}">Usuários</a></li>
+    </ul>
+</nav>
+<a th:href="@{/team/new}">Nova equipe</a>
+<table border="1" cellpadding="6">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Colaboradores</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="t: ${teams}">
+            <td th:text="${t.id}"></td>
+            <td th:text="${t.name}"></td>
+            <td th:text="${t.description}"></td>
+            <td th:text="${#strings.listJoin(t.members.![name], ', ')}"></td>
+            <td>
+                <div class="list-actions">
+                    <a th:href="@{'/team/' + ${t.id} + '/edit'}">Editar</a>
+                    <form th:action="@{'/team/' + ${t.id} + '/delete'}" method="post" style="display:inline">
+                        <button type="submit">Excluir</button>
+                    </form>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

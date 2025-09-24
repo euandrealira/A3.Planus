@@ -1,7 +1,9 @@
 package br.com.a3.Planus.model;
 
+import br.com.a3.Planus.model.enumerable.ProfileEnum;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.br.CPF;
 import lombok.*;
 
@@ -41,7 +43,8 @@ public class User {
     @NotBlank(message = "Senha é obrigatória")
     private String password;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    @NotBlank(message = "Perfil é obrigatório")
-    private String profile;
+    @NotNull
+    private ProfileEnum profile;
 }

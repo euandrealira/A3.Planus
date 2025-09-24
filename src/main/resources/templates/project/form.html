@@ -1,0 +1,60 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Projeto</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <h1 th:text="${project.id} != null ? 'Editar Projeto' : 'Novo Projeto'"></h1>
+    <form th:action="${project.id} != null ? @{'/project/' + ${project.id}} : @{/project}" method="post" th:object="${project}">
+        <label for="name">Nome do projeto:
+            <input type="text" id="name" name="name" th:field="*{name}" required />
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+        </label>
+        <label for="description">Descrição:
+            <input type="text" id="description" name="description" th:field="*{description}" required />
+            <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+        </label>
+        <label for="startDate">E-mail:
+            <input type="date" id="startDate" name="startDate" th:field="*{startDate}" required />
+            <span th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"></span>
+        </label>
+        <label for="endDate">Cargo:
+            <input type="date" id="endDate" name="endDate" th:field="*{endDate}" required />
+            <span th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}"></span>
+        </label>
+        <label for="status">Status:
+            <select id="status" th:field="*{status}">
+                <option th:each="st : ${statusList}"
+                        th:value="${st}"
+                        th:text="${st}">
+                </option>
+            </select>
+            <span th:if="${#fields.hasErrors('status')}" th:errors="*{status}"></span>
+        </label>
+        <label for="manager">Gerente:
+            <select id="manager" th:field="*{manager}">
+                <option th:each="u : ${users}"
+                        th:value="${u.id}"
+                        th:text="${u.name}">
+                </option>
+            </select>
+            <span th:if="${#fields.hasErrors('manager')}" th:errors="*{manager}"></span>
+        </label>
+        <label for="teams">Equipes:
+            <select id="teams" th:field="*{teams}">
+                <option th:each="t : ${teams}"
+                        th:value="${t.id}"
+                        th:text="${t.name}">
+                </option>
+            </select>
+            <span th:if="${#fields.hasErrors('teams')}" th:errors="*{teams}"></span>
+        </label>
+        <div>
+            <button type="submit">Salvar</button>
+            <a th:href="@{/project}">Voltar</a>
+        </div>
+    </form>
+</body>
+</html>
